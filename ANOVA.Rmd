@@ -1,0 +1,136 @@
+---
+title: "ANOVA"
+output: html_document
+date: "2026-30-01"
+---
+
+```{r}
+library(tidyverse)
+library(gapminder)
+library(ggplot2)
+head(gapminder)
+unique(gapminder$continent)
+
+
+```
+
+
+
+```{r}
+gapdata <- gapminder %>%
+  filter(year == 2007 &
+           continent %in% c('Americas', 'Asia', 'Europe')) %>%
+  select(continent, lifeExp)
+
+gapdata
+
+```
+
+```{r}
+mean <- gapdata %>% group_by(continent) %>%
+  summarise(Mean_life = mean(lifeExp)) %>%
+  arrange(Mean_life)
+mean
+
+
+```
+```{r}
+library(ggplot2)
+
+ggplot(gapdata, aes(x = continent, y = lifeExp)) +
+  geom_boxplot() +
+  geom_point(data = mean, aes(x = continent, y = Mean_life),
+             color = "blue", size = 3) +
+  labs(title = "Boxplot of lifeExp by continent and mean",
+       x = "Continent", y = "Life Expectancy")
+
+
+```
+
+
+```{r}
+ggplot(gapdata, aes(x = lifeExp, fill = continent)) +
+  geom_density(alpha = 0.4) +
+  geom_vline(data = mean,
+             aes(xintercept = Mean_life, color = continent),
+             linetype = "dashed", linewidth = 1)
+
+```
+
+
+
+```{r}
+lm_model <- lm(lifeExp ~ continent, data = gapdata)
+
+
+summary(lm_model)
+par(mfrow=c(2,2))
+plot(lm_model)
+par(mfrow=c(1,1))
+
+
+
+
+
+```
+
+
+
+```{r}
+gapdata %>%
+  aov(lifeExp ~ continent, data = .) %>%
+  summary()
+```
+
+
+
+
+```{r}
+IC <- gapdata %>%
+  aov(lifeExp ~ continent, data = .) %>%
+  TukeyHSD() 
+
+IC
+
+```
+
+
+```{r}
+
+plot(IC)
+
+```
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
