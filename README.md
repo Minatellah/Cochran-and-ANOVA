@@ -1,6 +1,6 @@
-# Cochran’s Theorem — Proof and Geometric Interpretation
+# Cochran’s Theorem — ANOVA test
 
-## 📌 Overview
+##  Overview
 
 This repository contains a self-contained proof of **Cochran’s theorem**, with an emphasis on the **geometric and statistical interpretation** of quadratic forms, orthogonal projections, and degrees of freedom.
 
@@ -8,7 +8,7 @@ The objective is not only to present the classical result, but also to clarify t
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 - Provide a rigorous proof of Cochran’s theorem  
 - Explain the role of:
@@ -22,7 +22,7 @@ The objective is not only to present the classical result, but also to clarify t
 
 ---
 
-## 📐 Mathematical Setting
+##  Mathematical Setting
 
 Let  
 
@@ -41,7 +41,7 @@ Cochran’s theorem characterizes the **distribution, independence, and degrees 
 
 ---
 
-## 🧠 Key Ideas
+##  Key Ideas
 
 - Quadratic forms arise as **squared norms of projections** of a Gaussian vector  
 - Orthogonality of subspaces explains **independence**  
@@ -54,7 +54,7 @@ Geometrically:
 
 ---
 
-## 📊 Link with ANOVA
+##  Link with ANOVA
 
 Cochran’s theorem provides the theoretical foundation of **one-way ANOVA** by explaining:
 
